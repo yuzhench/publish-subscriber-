@@ -1,0 +1,2 @@
+package1
+-DCATKIN_DEVEL_PREFIX=/home/yuzhen/Desktop/catkin_ws_self/devel -DCMAKE_INSTALL_PREFIX=/home/yuzhen/Desktop/catkin_ws_self/install -G Unix Makefiles
