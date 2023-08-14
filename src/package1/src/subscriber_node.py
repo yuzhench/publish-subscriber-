@@ -1,18 +1,25 @@
 #!/usr/bin/python3
 
 import rospy
-from std_msgs.msg import Int32
+from std_msgs.msg import String
 
-def number_callback(msg):
-    received_number = msg.data
-    doubled_number = received_number * 2
-    rospy.loginfo("Received: %d, Doubled: %d", received_number, doubled_number)
 
-def number_subscriber():
-    rospy.init_node('number_subscriber')
-    rospy.Subscriber('example_topic_int', Int32, number_callback)
-    rospy.spin()
+def callback(data):
+   rospy.loginfo(f"the message we lisen is {data.data}")
+
+
+
+def lisener():
+   rospy.init_node("subscriber_node",anonymous=True)
+   rospy.Subscriber("message_and_time", String, callback)
+   rospy.spin()
+
 
 if __name__ == '__main__':
-    number_subscriber()
+    try:
+      lisener()
+    except rospy.ROSInterruptException:
+       pass
+
+
 
